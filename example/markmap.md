@@ -3,7 +3,7 @@
 ## Autofit
 
 ```markmap
-> -a -h 1.2em
+> -a 
 
 # markmap 
 

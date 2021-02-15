@@ -2,7 +2,7 @@
 
 Obsidian Plugin: Render code block of markmap to embedded mindmap in preview mode.
 
-![](https://raw.githubusercontent.com/xpgo/obsidian-render-block-markmap(https://github.com/xpgo/obsidian-render-block-markmap)/master/image/render-block-markmap1.png)
+![](https://raw.githubusercontent.com/xpgo/obsidian-render-block-markmap/master/image/render-block-markmap1.png)
 
 ## Features
 
