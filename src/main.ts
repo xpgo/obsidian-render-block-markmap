@@ -1,11 +1,11 @@
 import {
-	Plugin,
+    Plugin,
 } from 'obsidian';
 
-import { 
-	DEFAULT_SETTINGS, 
-	RenderBlockMarkmapSettingTab,
-	RenderBlockMarkmapPluginSettings
+import {
+    DEFAULT_SETTINGS,
+    RenderBlockMarkmapSettingTab,
+    RenderBlockMarkmapPluginSettings
 } from './settings';
 
 import { MarkmapProcessor } from './block-markmap'
@@ -15,44 +15,44 @@ import { MarkmapProcessor } from './block-markmap'
 // ------------------------------------------------------------
 
 export default class RenderBlockMarkmapPlugin extends Plugin {
-	settings: RenderBlockMarkmapPluginSettings;
+    settings: RenderBlockMarkmapPluginSettings;
 
-	async onload() {
-		console.log('Loading Render Block Markmap plugin');
+    async onload() {
+        console.log('Loading Render Block Markmap plugin');
 
-		// load settings
-		await this.loadSettings();
+        // load settings
+        await this.loadSettings();
 
-		// for cards rendering
-		this.registerMarkdownCodeBlockProcessor('markmap', async (source, el, ctx) => {
-			if (this.settings.markmapSupport) {
-				await this.refreshEl(el);
-				const proc = new MarkmapProcessor();
-				await proc.run(source, el);
-			}
-		});
+        // for cards rendering
+        this.registerMarkdownCodeBlockProcessor('markmap', async (source, el, ctx) => {
+            if (this.settings.markmapSupport) {
+                await this.refreshEl(el);
+                const proc = new MarkmapProcessor();
+                await proc.run(source, el);
+            }
+        });
 
-		// for settings
-		this.addSettingTab(new RenderBlockMarkmapSettingTab(this.app, this));
-	}
+        // for settings
+        this.addSettingTab(new RenderBlockMarkmapSettingTab(this.app, this));
+    }
 
-	onunload() {
-		console.log('Unloading Render Block Markmap plugin');
-	}
+    onunload() {
+        console.log('Unloading Render Block Markmap plugin');
+    }
 
-	async loadSettings() {
-		this.settings = Object.assign(DEFAULT_SETTINGS, await this.loadData());
-	}
+    async loadSettings() {
+        this.settings = Object.assign(DEFAULT_SETTINGS, await this.loadData());
+    }
 
-	async saveSettings() {
-		await this.saveData(this.settings);
-	}
+    async saveSettings() {
+        await this.saveData(this.settings);
+    }
 
-	async refreshEl(el: HTMLElement) {
-		// prepare enviroment for markmap
-		// it is very important!
-		const codeBlock = el.querySelector('code.language-markmap');
-		if (!codeBlock) return;
-	}
+    async refreshEl(el: HTMLElement) {
+        // prepare enviroment for markmap
+        // it is very important!
+        const codeBlock = el.querySelector('code.language-markmap');
+        if (!codeBlock) return;
+    }
 
 }

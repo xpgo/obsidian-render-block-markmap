@@ -24,29 +24,29 @@ export const DEFAULT_SETTINGS: RenderBlockMarkmapPluginSettings = {
 // ------------------------------------------------------------
 
 export class RenderBlockMarkmapSettingTab extends PluginSettingTab {
-	plugin: RenderBlockMarkmapPlugin;
+    plugin: RenderBlockMarkmapPlugin;
 
-	constructor(app: App, plugin: RenderBlockMarkmapPlugin) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
+    constructor(app: App, plugin: RenderBlockMarkmapPlugin) {
+        super(app, plugin);
+        this.plugin = plugin;
+    }
 
-	display(): void {
-		let { containerEl } = this;
+    display(): void {
+        let { containerEl } = this;
 
-		containerEl.empty();
+        containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'Render Block Markmap Plugin - Settings.' });
+        containerEl.createEl('h2', { text: 'Render Block Markmap Plugin - Settings.' });
 
-		new Setting(containerEl)
-			.setName('Enable Markmap')
-			.setDesc('Enable Rendering markmap code block.')
-			.addToggle((toggle) => {
-				toggle.setValue(this.plugin.settings.markmapSupport);
-				toggle.onChange(async (value) => {
-					this.plugin.settings.markmapSupport = value;
-					await this.plugin.saveSettings();
-				});
-			});
-	}
+        new Setting(containerEl)
+            .setName('Enable Markmap')
+            .setDesc('Enable Rendering markmap code block.')
+            .addToggle((toggle) => {
+                toggle.setValue(this.plugin.settings.markmapSupport);
+                toggle.onChange(async (value) => {
+                    this.plugin.settings.markmapSupport = value;
+                    await this.plugin.saveSettings();
+                });
+            });
+    }
 }
