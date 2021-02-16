@@ -1,7 +1,7 @@
 {
 	"id": "render-block-markmap",
 	"name": "Render Block Markmap",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"minAppVersion": "0.10.12",
 	"description": "Render code block of markmap as mind map.",
 	"author": "xpgo",

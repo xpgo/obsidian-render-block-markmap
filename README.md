@@ -1,28 +1,34 @@
 # Render Block Markmap Plugin for Obsidian
 
-Obsidian Plugin: Render code block of markmap to embedded mindmap in preview mode.
+Obsidian Plugin: Render code block of markmap to embedded mind map in preview mode.
 
 ![](https://raw.githubusercontent.com/xpgo/obsidian-render-block-markmap/master/image/render-block-markmap1.png)
 
 ## Features
 
-- preview the code block of [markmap](https://markmap.js.org/) as mindmap
-- embeded mindmap in current note
+- preview the code block of [markmap](https://markmap.js.org/) as mind map
+- embedded mind map in current note
 - inline options for autofit
 
 **NOTICE**
 
-The plugin is different from the similar plugin [Obsidian Mind Map](https://github.com/lynchjames/obsidian-mind-map) which shows the entile note as mindmap in a seperated view and has more features. This plugin uses code block of markmap and embeds the mindmap in the note file preview. Personally, I like the embeded mode, so I released the plugin for whom also prefers the mode too.
+The plugin is different from the similar plugin [Obsidian Mind Map](https://github.com/lynchjames/obsidian-mind-map) which shows the entire note as mind map in a separated view and has more features. This plugin uses code block of markmap and embeds the mind map in the note file preview. Personally, I like the embedded mode, so I released the plugin for whom also prefers the mode too.
 
 ## Inline options
 
-- If the first line starts with `> `, the first line will be used for mind map options, for example: `> -a ` means autofit the mind map. In the future there will be more options.
+If the first line in the code block starts with `> `, the first line will be used for mind map options. Currently, it supports the following options:
+
+- `-a`: use this option to autofit the mind map when any node changes.
+- `-vh 0.8`: adjust the view height of mind map in preview mode. The default is 1.0.
+
+In the future there will be more options.
 
 ## Change log
 
-### 0.1.0
+### 0.1.x
 
-- Initial release
+- add option `-vh` (0.1.3)
+- Initial release (0.1.0)
 
 ## Plans for future
 

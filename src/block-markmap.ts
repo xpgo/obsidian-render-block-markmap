@@ -9,13 +9,18 @@ import { IMarkmapOptions } from 'markmap-view/types/types';
 // ------------------------------------------------------------
 
 export class MarkmapProcessor {
+	viewHeight: number;
+
+	constructor() {
+        this.viewHeight = 1.0;
+	}
 
     async run(source: string, el: HTMLElement) {
         // parser options
-        var optStr = '';
+        let optStr = '';
         if (source.startsWith('> ')) {
             const linePos = source.indexOf('\n');
-            var optStr = source.substring(2, linePos);
+            optStr = source.substring(2, linePos);
             source = source.substring(linePos + 1);
         }
         const options = this.parseOptions(optStr);
@@ -27,11 +32,11 @@ export class MarkmapProcessor {
         const { root, features } = transform(source);
 
         // create svg
-        var svg = this.createSVG(divEl);
+        let svg = this.createSVG(divEl);
         const markmapSVG = Markmap.create(svg, options, root);
 
         // resize containing div to contain the diagram's natural height
-        const height = markmapSVG.state.maxY - markmapSVG.state.minY;
+        const height = this.viewHeight * (markmapSVG.state.maxY - markmapSVG.state.minY);
         svg.style.height = `${height}px`;
 
         // zoom to fit (which should do nothing here?)
@@ -49,13 +54,22 @@ export class MarkmapProcessor {
         };
 
         // parser
-        var lineOpt = optStr.split(' ');
+        let lineOpt = optStr.split(' ');
 
         // autoFit?
         const nOpt = lineOpt.length;
-        var iOpt = lineOpt.indexOf('-a');
+        let iOpt = lineOpt.indexOf('-a');
         if (iOpt >= 0) {
             options.autoFit = true;
+        }
+
+        // view height
+        iOpt = lineOpt.indexOf('-vh');
+        if (iOpt >= 0 && (iOpt+1 < nOpt)) {
+            this.viewHeight = +(lineOpt[iOpt+1]);
+            if (this.viewHeight <= 0.0) {
+                this.viewHeight = 0.1;
+            }
         }
 
         // return
