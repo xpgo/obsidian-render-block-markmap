@@ -28,8 +28,7 @@ export default class RenderBlockMarkmapPlugin extends Plugin {
     async refreshEl(el: HTMLElement) {
         // prepare enviroment for markmap
         // it is very important!
-        const codeBlock = el.querySelector('code.language-markmap');
-        if (!codeBlock) return;
+        el.querySelector('code.language-markmap');
     }
 
 }
