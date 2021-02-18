@@ -35,6 +35,8 @@ In the future there will be more options.
 ## Plans for future
 
 - [ ] Add more inline options
+- [ ] Support wiki style link
+- [ ] Adjust color and position for slides view
 
 ## Install
 
