@@ -36,7 +36,6 @@ In the future there will be more options.
 
 ## Install
 
-- On the Obsidian's settings page, browse the community plugins and search 'Render Block Markmap', then install.
 - Manually installing: go to the GitHub release page, copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/render-block-markmap/`.
 
 ## Build
