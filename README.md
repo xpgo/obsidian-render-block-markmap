@@ -36,7 +36,7 @@ In the future there will be more options.
 
 ## Install
 
-- Manually installing: go to the GitHub release page, copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/render-block-markmap/`.
+- Manually installing: go to the GitHub release page, copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/render-block-markmap/`. Then enable it in the Obsidian's Community Plugin settings page.
 
 ## Build
 
