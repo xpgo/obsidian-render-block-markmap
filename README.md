@@ -8,7 +8,7 @@ Obsidian Plugin: Render code block of markmap to embedded mind map in preview mo
 
 - preview the code block of [markmap](https://markmap.js.org/) as mind map
 - embedded mind map in current note
-- support link to internal md file
+- support link to internal md file (markdown style)
 - inline options for autofit, map height and more
 
 **NOTICE**
