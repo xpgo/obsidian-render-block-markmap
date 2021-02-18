@@ -39,6 +39,14 @@ export class MarkmapProcessor {
         const height = this.viewHeight * (markmapSVG.state.maxY - markmapSVG.state.minY);
         svg.style.height = `${height}px`;
 
+        // fix all internal links
+        let interLinks = svg.querySelectorAll('a');
+        interLinks.forEach((aLink: HTMLAnchorElement) => {
+            if (aLink.href.startsWith('app://obsidian.md')) {
+                aLink.addClass('internal-link');
+            }
+        });
+
         // zoom to fit (which should do nothing here?)
         markmapSVG.fit();
     }
